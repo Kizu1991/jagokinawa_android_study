@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/top"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:background="#f00"-->
+    <!--android:scaleType="center"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:background="#000"-->
+    <!--android:scaleType="center"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/title"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:background="#f00"-->
+    <!--android:text="ほげほげほげほげほげほげほげほげ"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/title"-->
+    <!--android:layout_toRightOf="@id/title"-->
+    <!--android:background="#0f0"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/title"-->
+    <!--android:layout_toLeftOf="@id/title"-->
+    <!--android:background="#0f0"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@id/title"-->
+    <!--android:layout_toLeftOf="@id/title"-->
+    <!--android:background="#0f0"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@id/title"-->
+    <!--android:layout_toRightOf="@id/title"-->
+    <!--android:background="#0f0"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@id/title"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:background="#0f0"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/title"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:background="#0f0"-->
+    <!--android:src="@mipmap/ic_launcher_round"/>-->
+
+    <!--</RelativeLayout>-->
+
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Hello World!"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="40sp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textColor="@color/colorPrimary"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="italic"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:drawableLeft="@mipmap/ic_launcher"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="#ff0"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:visibility="invisible"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="150dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="100dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:src="@mipmap/ic_launcher"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="#000"/>&ndash;&gt;-->
+
+</LinearLayout>
