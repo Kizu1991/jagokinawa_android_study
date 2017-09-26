@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="jag.okinawa.androidstudy.myapplication.SecondActivity"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="追加"/>
+        android:gravity="center"/>
 
-    <ListView
-        android:id="@+id/list"
+    <Button
+        android:id="@+id/finish"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="終了"/>
 
 </LinearLayout>

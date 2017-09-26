@@ -1,14 +1,20 @@
 package jag.okinawa.androidstudy.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    private List<MyModel> mModels;
+    private MyAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,47 +22,48 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView listView = (ListView) findViewById(R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1);
 
-        for(int i = 0; i < 20; i++){
-            adapter.add("Position " + i);
+        mModels = new ArrayList<>();
+        for(int i = 0; i < 10; i++){
+            MyModel model = new MyModel();
+            model.setImageUrl("http://healthy-lion99.up.n.seesaa.net/healthy-lion99/image/E382ABE382BFE38384E383A0E383AAE38080E6A899E6BA96-thumbnail2.jpg");
+            model.setTitle(i + "番目のタイトル");
+            model.setDescription(i + "番目の詳細");
+            mModels.add(model);
         }
 
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mAdapter = new MyAdapter(mModels);
+        listView.setAdapter(mAdapter);
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d("onItemClick", "OnItemClick!!");
+            public void onClick(View view) {
+                for(int i = 0; i < 10; i++){
+                    MyModel model = new MyModel();
+                    model.setImageUrl("http://www.d3.dion.ne.jp/~tiyoko01/java/gazou/largephoto1.gif");
+                    model.setTitle("追加のタイトル" + i);
+                    model.setDescription("追加の詳細" + i);
+                    mModels.add(model);
+                }
+                mAdapter.notifyDataSetChanged();
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("position", position);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
 
-//        LinearLayout view = (LinearLayout)findViewById(R.id.top);
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.d("OnClick", "OnClick!!");
-//            }
-//        });
-//
-//        view.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View view) {
-//                Log.d("OnLongClick", "OnLongClick!!");
-//                return false;
-//            }
-//        });
-//
-//        view.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                Log.d("onTouch",
-//                        "Action = " + motionEvent.getAction() +
-//                        "X = " + motionEvent.getX() +
-//                        "Y = " + motionEvent.getY());
-//                return false;
-//            }
-//        });
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.d("Result", "RequestCode = " + requestCode +
+                        " ResultCode = " + resultCode);
     }
 }
