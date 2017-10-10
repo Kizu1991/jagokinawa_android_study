@@ -11,6 +11,14 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import jag.okinawa.androidstudy.myapplication.models.Event;
+import jag.okinawa.androidstudy.myapplication.models.Eventon;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     private List<MyModel> mModels;
@@ -24,14 +32,6 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list);
 
         mModels = new ArrayList<>();
-        for(int i = 0; i < 10; i++){
-            MyModel model = new MyModel();
-            model.setImageUrl("http://healthy-lion99.up.n.seesaa.net/healthy-lion99/image/E382ABE382BFE38384E383A0E383AAE38080E6A899E6BA96-thumbnail2.jpg");
-            model.setTitle(i + "番目のタイトル");
-            model.setDescription(i + "番目の詳細");
-            mModels.add(model);
-        }
-
         mAdapter = new MyAdapter(mModels);
         listView.setAdapter(mAdapter);
 
@@ -43,6 +43,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+
+        API api = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(API.BASE_URL)
+                .build()
+                .create(API.class);
+
+        // API リクエスト
+        api.apiCall().enqueue(new Callback<Eventon>() {
+            @Override
+            public void onResponse(Call<Eventon> call, Response<Eventon> response) {
+
+                Eventon eventon = response.body();
+                for(Event event : eventon.getEvents()){
+                    MyModel model = new MyModel();
+                    model.setImageUrl(event.getImagePath());
+                    model.setTitle(event.getTitle());
+                    model.setDescription(event.getSummary());
+                    mModels.add(model);
+                }
+
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<Eventon> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
@@ -50,6 +79,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         Log.d("Result", "RequestCode = " + requestCode +
-                        " ResultCode = " + resultCode);
+                " ResultCode = " + resultCode);
     }
 }
