@@ -1,10 +1,9 @@
-package com.src.event.models.eventon;
+package jag.okinawa.androidstudy.myapplication.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.src.event.models.Model;
 
-public class Ticket implements Model {
+public class Ticket{
 
     @SerializedName("name")
     @Expose
