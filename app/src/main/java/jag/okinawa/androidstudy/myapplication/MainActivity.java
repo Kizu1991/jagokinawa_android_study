@@ -35,20 +35,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(mModels);
         listView.setAdapter(mAdapter);
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for(int i = 0; i < 10; i++){
-                    MyModel model = new MyModel();
-                    model.setImageUrl("http://www.d3.dion.ne.jp/~tiyoko01/java/gazou/largephoto1.gif");
-                    model.setTitle("追加のタイトル" + i);
-                    model.setDescription("追加の詳細" + i);
-                    mModels.add(model);
-                }
-                mAdapter.notifyDataSetChanged();
-            }
-        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
