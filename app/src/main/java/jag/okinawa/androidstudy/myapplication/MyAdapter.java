@@ -54,9 +54,12 @@ public class MyAdapter extends BaseAdapter{
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        Picasso.with(viewGroup.getContext())
-                .load(model.getImageUrl())
-                .into(viewHolder.mImageView);
+        if(model.getImageUrl() != null && !model.getImageUrl().equals("")){
+            Picasso.with(viewGroup.getContext())
+                    .load(model.getImageUrl())
+                    .into(viewHolder.mImageView);
+        }
+
 
         viewHolder.mTitle.setText(model.getTitle());
         viewHolder.mDescription.setText(model.getDescription());
