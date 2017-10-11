@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<MyModel> mModels;
     private MyAdapter mAdapter;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView listView = (ListView) findViewById(R.id.list);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress);
 
         mModels = new ArrayList<>();
         mAdapter = new MyAdapter(mModels);
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mProgressBar.setVisibility(View.VISIBLE);
+
         API api = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(API.BASE_URL)
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 .create(API.class);
 
         // API リクエスト
-        api.apiCall().enqueue(new Callback<Eventon>() {
+        api.apiCall(100).enqueue(new Callback<Eventon>() {
             @Override
             public void onResponse(Call<Eventon> call, Response<Eventon> response) {
 
@@ -65,11 +70,14 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 mAdapter.notifyDataSetChanged();
-            }
 
+                mProgressBar.setVisibility(View.GONE);
+
+            }
             @Override
             public void onFailure(Call<Eventon> call, Throwable t) {
-
+                // TODO エラー処理
+                mProgressBar.setVisibility(View.GONE);
             }
         });
     }
