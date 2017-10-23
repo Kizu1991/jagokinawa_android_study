@@ -5,9 +5,18 @@ package jag.okinawa.androidstudy.myapplication;
  * String pdc-k-kamiya on 2017/09/25.
  */
 public class MyModel {
+    private String mId;
     private String mImageUrl;
     private String mTitle;
     private String mDescription;
+
+    public String getId() {
+        return mId;
+    }
+
+    public void setId(String id) {
+        mId = id;
+    }
 
     public String getImageUrl() {
         return mImageUrl;

@@ -15,4 +15,7 @@ public interface API {
 
     @GET("api/events.json")
     Call<Eventon> apiCall(@Query("limit") int limit);
+
+    @GET("api/events.json")
+    Call<Eventon> getEvent(@Query("event_id") String event_id);
 }

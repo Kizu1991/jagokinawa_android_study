@@ -1,23 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jag.okinawa.androidstudy.myapplication.SecondActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="jag.okinawa.androidstudy.myapplication.SecondActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_centerInParent="true"/>
 
-    <Button
-        android:id="@+id/finish"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="終了"/>
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="タイトル"
+                android:textSize="20sp"
+                android:textColor="#000"/>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="summary"/>
+
+            <TextView
+                android:id="@+id/capacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="定員：30/30 キャンセル待ち3名"/>
+
+            <TextView
+                android:id="@+id/started_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="開催日："/>
+
+            <TextView
+                android:id="@+id/ended_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="終了日："/>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="開催場所："/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Event詳細"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textStyle="bold"/>
+
+            <WebView
+                android:id="@+id/contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
