@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                MyModel model = mModels.get(position);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra("event_id", model.getId());
                 startActivityForResult(intent, 1);
             }
         });
@@ -56,13 +57,14 @@ public class MainActivity extends AppCompatActivity {
                 .create(API.class);
 
         // API リクエスト
-        api.apiCall(100).enqueue(new Callback<Eventon>() {
+        api.apiCall(10).enqueue(new Callback<Eventon>() {
             @Override
             public void onResponse(Call<Eventon> call, Response<Eventon> response) {
 
                 Eventon eventon = response.body();
                 for(Event event : eventon.getEvents()){
                     MyModel model = new MyModel();
+                    model.setId(event.getEventId());
                     model.setImageUrl(event.getImagePath());
                     model.setTitle(event.getTitle());
                     model.setDescription(event.getSummary());
